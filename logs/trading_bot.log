@@ -1,0 +1,46 @@
+2026-04-21 11:06:44,053 | ERROR | __main__ | Validation error
+Traceback (most recent call last):
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\cli.py", line 64, in main
+    quantity = parse_positive_decimal(args.quantity, "quantity")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\bot\validators.py", line 39, in parse_positive_decimal
+    raise ValueError(f"{field_name} must be greater than 0")
+ValueError: quantity must be greater than 0
+2026-04-21 14:01:27,280 | INFO | trading_bot.bot.orders | Submitting order payload: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-04-21 14:01:27,955 | ERROR | __main__ | Binance client error
+Traceback (most recent call last):
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\bot\client.py", line 57, in _signed_request
+    with urlopen(request, timeout=self.timeout) as response:
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\urllib\request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\urllib\request.py", line 495, in open
+    response = meth(req, response)
+  File "C:\Python313\Lib\urllib\request.py", line 604, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "C:\Python313\Lib\urllib\request.py", line 533, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Python313\Lib\urllib\request.py", line 466, in _call_chain
+    result = func(*args)
+  File "C:\Python313\Lib\urllib\request.py", line 613, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\cli.py", line 86, in main
+    response = submit_order(client, payload)
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\bot\orders.py", line 38, in submit_order
+    response = client.place_order(payload)
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\bot\client.py", line 29, in place_order
+    return self._signed_request("POST", "/fapi/v1/order", payload)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manha\Documents\Codex\2026-04-21-files-mentioned-by-the-user-python\trading_bot\bot\client.py", line 63, in _signed_request
+    raise BinanceClientError(message) from exc
+trading_bot.bot.client.BinanceClientError: Binance API error -2014: API-key format invalid.
+2026-04-21 14:12:00,110 | INFO | trading_bot.bot.orders | Submitting order payload: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-04-21 14:12:03,520 | INFO | trading_bot.bot.orders | Binance order response: {'orderId': 13057020176, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'p2bXvVBDW3zbMueGjrtfhV', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776760921711}
