@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trading Bot Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+
+      <header class="topbar reveal">
+        <div>
+          <p class="eyebrow">Binance Futures Testnet</p>
+          <h1>Clean execution, calm motion, fast trading controls.</h1>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Live interface
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="hero-card reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">Minimal control center</p>
+            <h2>Submit testnet orders from a focused dashboard.</h2>
+            <p class="hero-text">
+              A lightweight interface on top of your Python trading bot, styled with
+              soft depth, restrained contrast, and smooth transitions.
+            </p>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-label">Mode</span>
+              <strong>USDT-M Testnet</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Latency</span>
+              <strong>Realtime submit</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Flow</span>
+              <strong>Market + Limit</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel-grid">
+          <section class="panel order-panel reveal">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Order ticket</p>
+                <h3>Place a test order</h3>
+              </div>
+              <div class="segmented">
+                <button class="segmented-btn active" data-side="BUY" type="button">Buy</button>
+                <button class="segmented-btn" data-side="SELL" type="button">Sell</button>
+              </div>
+            </div>
+
+            <form id="order-form" class="order-form">
+              <input type="hidden" id="side" name="side" value="BUY">
+
+              <label>
+                <span>Symbol</span>
+                <input id="symbol" name="symbol" value="BTCUSDT" required>
+              </label>
+
+              <div class="split">
+                <label>
+                  <span>Order type</span>
+                  <select id="orderType" name="orderType">
+                    <option value="MARKET">Market</option>
+                    <option value="LIMIT">Limit</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Quantity</span>
+                  <input id="quantity" name="quantity" value="0.001" required>
+                </label>
+              </div>
+
+              <label id="price-field" class="is-hidden">
+                <span>Limit price</span>
+                <input id="price" name="price" placeholder="80000">
+              </label>
+
+              <button id="submit-btn" class="submit-btn" type="submit">
+                <span>Submit order</span>
+              </button>
+            </form>
+
+            <p id="form-status" class="form-status">Ready when you are.</p>
+          </section>
+
+          <section class="panel insight-panel reveal">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Session snapshot</p>
+                <h3>Trading rhythm</h3>
+              </div>
+            </div>
+
+            <div class="insight-stack">
+              <article class="insight-card">
+                <span class="insight-label">Best for</span>
+                <strong>Assignment demos</strong>
+                <p>Use market for fast proof, limit for precise ticket validation.</p>
+              </article>
+              <article class="insight-card">
+                <span class="insight-label">Safety</span>
+                <strong>Validation first</strong>
+                <p>Inputs are normalized before any signed Binance request is sent.</p>
+              </article>
+              <article class="insight-card">
+                <span class="insight-label">Logging</span>
+                <strong>Traceable flow</strong>
+                <p>Requests, responses, and failures are written to the bot log.</p>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="panel response-panel reveal">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Order activity</p>
+              <h3>Latest response</h3>
+            </div>
+          </div>
+          <pre id="response-output" class="response-output">No orders submitted yet.</pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+  </html>
