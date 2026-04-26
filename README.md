@@ -3,7 +3,6 @@
 This project is a small Python trading bot for placing `MARKET` and `LIMIT` orders on the Binance Futures Testnet (USDT-M). It includes both a command-line interface and a lightweight animated web dashboard, with separate client, validation, order, and logging layers.
 
 ## Features
-
 - Place `MARKET` and `LIMIT` orders on Binance Futures Testnet
 - Supports both `BUY` and `SELL`
 - Validates CLI input before hitting the API
@@ -12,7 +11,6 @@ This project is a small Python trading bot for placing `MARKET` and `LIMIT` orde
 - Keeps API access isolated in a reusable client layer
 
 ## Project Structure
-
 ```text
 trading_bot/
   bot/
@@ -33,7 +31,6 @@ requirements.txt
 ```
 
 ## Setup
-
 1. Create and activate a Python 3 virtual environment.
 2. Install dependencies:
 
@@ -63,19 +60,14 @@ python -c "from trading_bot.webapp import run_server; print('web import ok')"
 ```
 
 ## Usage
-
-### Market order
-
+### Market orde
 ```bash
 python -m trading_bot.cli --symbol BTCUSDT --side BUY --order-type MARKET --quantity 0.001
 ```
-
 ### Limit order
-
 ```bash
 python -m trading_bot.cli --symbol BTCUSDT --side SELL --order-type LIMIT --quantity 0.001 --price 80000
 ```
-
 ## Web UI
 
 Start the dashboard server:
